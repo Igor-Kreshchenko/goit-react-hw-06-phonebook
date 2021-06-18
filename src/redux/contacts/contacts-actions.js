@@ -1,6 +1,6 @@
 import actionTypes from './contacts-types';
 
-export const addContact = ({ id, name, number }) => ({
+const addContact = ({ id, name, number }) => ({
   type: actionTypes.ADD,
   payload: {
     id,
@@ -9,14 +9,16 @@ export const addContact = ({ id, name, number }) => ({
   },
 });
 
-export const deleteContact = id => ({
+const deleteContact = id => ({
   type: actionTypes.DELETE,
-  payload: {
-    id,
-  },
+  payload: id,
 });
 
-export const filterContacts = value => ({
+const filterContacts = value => ({
   type: actionTypes.FILTER,
   payload: value,
 });
+
+const actions = { addContact, deleteContact, filterContacts };
+
+export default actions;

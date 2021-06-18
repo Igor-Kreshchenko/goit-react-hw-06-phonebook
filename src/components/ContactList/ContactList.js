@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import actions from '../../redux/contacts/contacts-actions';
+import { connect } from 'react-redux';
 import ContactItem from './ContactItem';
 import styles from './ContactList.module.css';
 
@@ -23,7 +25,23 @@ const ContactList = ({ contacts, onClick }) => {
   );
 };
 
-export default ContactList;
+const filterContacts = (items, filter) => {
+  const normalizedFilter = filter.toLowerCase();
+
+  return items.filter(item =>
+    item.name.toLowerCase().includes(normalizedFilter),
+  );
+};
+
+const mapStateToProps = ({ contacts: { items, filter } }) => ({
+  contacts: filterContacts(items, filter),
+});
+
+const mapDispatchToProps = dispatch => ({
+  onClick: id => dispatch(actions.deleteContact(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(

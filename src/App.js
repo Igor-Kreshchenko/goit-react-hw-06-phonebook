@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import * as actions from './redux/contacts/contacts-actions';
+import actions from './redux/contacts/contacts-actions';
 import Section from './components/Section';
 import ContactForm from './components/ContactForm';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter';
 import styles from './App.module.css';
 
-const App = ({ contacts: { items, filter }, addContact, deleteContact }) => {
+const App = () => {
   return (
     <div className={styles.wrapper}>
       <Section title="Phonebook">
-        <ContactForm onSubmit={addContact} />
+        <ContactForm />
       </Section>
 
       <Section title="Contacts">
-        {/* <Filter value={filter} /> */}
-        <ContactList contacts={items} onClick={deleteContact} />
+        <Filter />
+        <ContactList />
       </Section>
     </div>
   );
