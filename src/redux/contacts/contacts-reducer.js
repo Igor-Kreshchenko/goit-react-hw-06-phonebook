@@ -17,7 +17,7 @@ const itemsReducer = createReducer(
 );
 
 const filterReducer = createReducer('', {
-  [actions.filterContacts]: (state, { payload }) => payload,
+  [actions.filterContacts]: (_, { payload }) => payload,
 });
 
 const contactsReducer = combineReducers({
