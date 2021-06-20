@@ -18,8 +18,8 @@ const Filter = ({ value, onChange }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  value: state.contacts.filter,
+const mapStateToProps = ({ contacts: { filter } }) => ({
+  value: filter,
 });
 
 const mapDispatchToProps = dispatch => ({
