@@ -80,8 +80,8 @@ const mapStateToProps = ({ contacts: { items } }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: value => {
-    return dispatch(actions.addContact(value));
+  onSubmit: contact => {
+    return dispatch(actions.addContact(contact));
   },
 });
 
